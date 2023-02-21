@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <div className="border-b-4 border-green-700 fixed top-0 bg-green-600 font-bold text-lg text-white">
+    <div className="border-b-4 border-green-700 text-center fixed top-0 bg-green-600 font-bold w-full text-lg text-white">
       <ul>
         <li className="inline-block pt-4 pb-4">
           <Link to="/" className="pt-6 pr-8">
@@ -15,11 +15,7 @@ function NavBar() {
             About
           </Link>
         </li>
-        <li className="inline-block pt-4 pb-4">
-          <Link to="/article" className="pt-6 pr-8">
-            Article
-          </Link>
-        </li>
+       
         <li className="inline-block pt-4 pb-4">
           <Link to="/article-list" className="pt-6 pr-8">
             Articles List

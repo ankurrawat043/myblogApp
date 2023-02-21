@@ -489,6 +489,9 @@ video {
 .hidden {
   display: none;
 }
+.w-full {
+  width: 100%;
+}
 .max-w-screen-md {
   max-width: 768px;
 }
@@ -520,6 +523,9 @@ video {
 }
 .pr-8 {
   padding-right: 2rem;
+}
+.text-center {
+  text-align: center;
 }
 .text-2xl {
   font-size: 1.5rem;
