@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import Articles from "../components/Articles";
 import articles from "./article-content";
 
 function Article() {
@@ -9,6 +10,7 @@ function Article() {
   if(!article){
     return <h1>The Article does not exist</h1>
   }
+  const otherArticles= articles.filter((article)=>article.name !== name.name)
   return (
     <div className="mb-20">
       <h1 className="sm:text-4xl text-2xl font-bold mt-6 text-grey-900">
@@ -19,6 +21,12 @@ function Article() {
           {paragraph}
         </p>
       ))}
+      <h1 className="sm:text-2x text-xl font-bold mt-4 mb-4 text-grey-900">
+        Other Articles
+      </h1>
+      <div className="flex flex-wrap -m-4">
+        <Articles articles={otherArticles}/>
+      </div>
     </div>
   );
 }
