@@ -7,7 +7,7 @@ const articles = [
     date: "2020-01-01",
   },
   {
-    name: "monesh",
+    name: "learn-web",
     title: "The Fastest way to learn web",
     thumbnail: "/images/blog2.jpg",
     content: ["Hello Welcome to this article for learning web quick."],

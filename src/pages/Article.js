@@ -2,10 +2,28 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Articles from "../components/Articles";
 import articles from "./article-content";
+import "whatwg-fetch";
+import { useState, useEffect } from "react";
+import CommentsList from "../components/CommentsList";
+import AddCommentForm from "../components/AddCommentForm";
 
 function Article() {
   const name = useParams();
   const article = articles.find((article) => article.name === name.name);
+
+  const [articleInfo, setArticleInfo] = useState({comments:[]});
+
+  useEffect(() => {
+    const fetchData=async()=>{
+      const result = await fetch(`/api/articles/${name.name}`);
+      const body = await result.json();
+      console.log(body);
+      setArticleInfo(body);
+    };
+  fetchData();
+    
+  }, [name.name])
+  
 
   if(!article){
     return <h1>The Article does not exist</h1>
@@ -21,6 +39,11 @@ function Article() {
           {paragraph}
         </p>
       ))}
+
+      <CommentsList comments={articleInfo.comments}/>
+      <AddCommentForm articleName={name} setArticleInfo={setArticleInfo} />
+
+
       <h1 className="sm:text-2x text-xl font-bold mt-4 mb-4 text-grey-900">
         Other Articles
       </h1>
